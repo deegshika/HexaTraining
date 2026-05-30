@@ -1,4 +1,4 @@
-```javascript
+
 // Use Database
 
 use retail_db
@@ -114,4 +114,4 @@ db.customers.find().sort({
 // Limit
 
 db.customers.find().limit(3)
-```
+
