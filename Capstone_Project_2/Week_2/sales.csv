@@ -1,7 +1,0 @@
-sale_id,store_id,product_id,product_name,quantity,price,cost
-1,1,101,Laptop,2,55000,45000
-2,1,102,Headphones,5,2500,1800
-3,2,103,Smart Watch,3,6000,4500
-4,2,101,Laptop,1,55000,45000
-5,3,102,Headphones,10,2500,1800
-6,3,103,Smart Watch,4,6000,4500
