@@ -1,0 +1,218 @@
+root@ubuntu:~$ 1. docker run -d \
+-p 8080:8080 \
+--name airflow \
+apache/airflow standalone
+1.: command not found
+root@ubuntu:~$ 1. docker run -d \
+-p 8080:8080 \
+--name airflow \
+apache/airflow standalone
+1.: command not found
+root@ubuntu:~$ ^[[200~1. docker run -d \
+> -p 8080:8080 \
+> --name airflow \
+> apache/airflow standalone~
+1.: command not found
+root@ubuntu:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@ubuntu:~$ docker run -d -p 8080:8080 --name airflow apache/airflow standalone
+Unable to find image 'apache/airflow:latest' locally
+latest: Pulling from apache/airflow
+068fedd6b0f1: Pull complete 
+73956f7c6548: Pull complete 
+13724bff4daf: Pull complete 
+595d858e0535: Pull complete 
+ca9e91684445: Pull complete 
+5c538c78f2ca: Pull complete 
+fac9e42a5e42: Pull complete 
+36a584782079: Pull complete 
+92e8fe4844ea: Pull complete 
+4b83042e2683: Pull complete 
+e25e81bb8143: Pull complete 
+2e0758d70387: Pull complete 
+e833e2382db6: Pull complete 
+2820d89770e9: Pull complete 
+5b0a401c1471: Pull complete 
+8304baac1ba9: Pull complete 
+a8490bef7d20: Pull complete 
+9ca5efaee4cf: Pull complete 
+f75ceb497c1a: Pull complete 
+4f4fb700ef54: Pull complete 
+Digest: sha256:bef4d135ec7b64658cf64089973edd62cab8fd72203f280c7e0952213c17d912
+Status: Downloaded newer image for apache/airflow:latest
+c6e71dfeaddbc9ff85a7242e74044ce616a39e98441eef45147594d73e6ba24f
+root@ubuntu:~$ docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+c6e71dfeaddb   apache/airflow   "/usr/bin/dumb-init …"   6 seconds ago   Up 4 seconds   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp   airflow
+root@ubuntu:~$ docker logs airflow
+2026-06-23T06:06:58.496521Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:06:58.496700Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:06:58.496787Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:06:58.496851Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:06:58.496923Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:06:58.497005Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+standalone | Starting Airflow Standalone
+Simple auth manager | Password for user 'admin': mAaGv9PzDEffEHqe
+standalone | Checking database is initialized
+2026-06-23T06:07:00.790095Z [info     ] Creating Airflow database tables from the ORM [airflow.utils.db] loc=db.py:739
+2026-06-23T06:07:00.790508Z [info     ] Creating global lock context   [airflow.utils.db] loc=db.py:720
+2026-06-23T06:07:00.790691Z [info     ] Pool status: Pool size: 5  Connections in pool: 0 Current Overflow: -4 Current Checked out connections: 1 [airflow.utils.db] loc=db.py:723
+2026-06-23T06:07:00.790773Z [info     ] Creating metadata              [airflow.utils.db] loc=db.py:725
+2026-06-23T06:07:03.208427Z [info     ] Getting alembic config         [airflow.utils.db] loc=db.py:728
+2026-06-23T06:07:03.215817Z [info     ] Stamping migration head        [airflow.utils.db] loc=db.py:731
+2026-06-23T06:07:03.443724Z [info     ] Airflow database tables created [airflow.utils.db] loc=db.py:734
+2026-06-23T06:07:03.445507Z [info     ] Creating FABDBManager tables from the ORM [airflow.providers.fab.auth_manager.models.db.FABDBManager] loc=db_manager.py:124
+2026-06-23T06:07:03.874832Z [info     ] FABDBManager tables have been created from the ORM [airflow.providers.fab.auth_manager.models.db.FABDBManager] loc=db_manager.py:130
+standalone | Database ready
+triggerer  | 2026-06-23T06:07:12.933178Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+triggerer  | 2026-06-23T06:07:12.936530Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+triggerer  | 2026-06-23T06:07:12.936749Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+triggerer  | 2026-06-23T06:07:12.938505Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+triggerer  | 2026-06-23T06:07:12.938646Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+triggerer  | 2026-06-23T06:07:12.938731Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | 2026-06-23T06:07:13.208039Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | 2026-06-23T06:07:13.211510Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | 2026-06-23T06:07:13.211648Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | 2026-06-23T06:07:13.211727Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | 2026-06-23T06:07:13.211797Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | 2026-06-23T06:07:13.211858Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+api-server | 2026-06-23T06:07:13.607159Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+api-server | 2026-06-23T06:07:13.610564Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+api-server | 2026-06-23T06:07:13.610783Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+api-server | 2026-06-23T06:07:13.612543Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+api-server | 2026-06-23T06:07:13.612724Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+api-server | 2026-06-23T06:07:13.612828Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | ____________       _____________
+scheduler  | ____    |__( )_________  __/__  /________      __
+scheduler  | ____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /
+scheduler  | ___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /
+scheduler  | _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/
+scheduler  | 2026-06-23T06:07:15.351079Z [info     ] Loaded executor: :LocalExecutor: [airflow.executors.executor_loader] loc=executor_loader.py:376
+dag-processor | 2026-06-23T06:07:15.526806Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+dag-processor | 2026-06-23T06:07:15.527022Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+dag-processor | 2026-06-23T06:07:15.528513Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+dag-processor | 2026-06-23T06:07:15.529486Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+dag-processor | 2026-06-23T06:07:15.529622Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+dag-processor | 2026-06-23T06:07:15.529696Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+scheduler  | 2026-06-23T06:07:16.248742Z [info     ] Starting log server on http://[::]:8793 [airflow.utils.serve_logs.core] loc=core.py:50
+triggerer  | ____________       _____________
+triggerer  | ____    |__( )_________  __/__  /________      __
+triggerer  | ____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /
+triggerer  | ___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /
+triggerer  | _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/
+triggerer  | 2026-06-23T06:07:16.291670Z [info     ] Starting log server on http://[::]:8794 [airflow.utils.serve_logs.core] loc=core.py:50
+scheduler  | 2026-06-23T06:07:16.303342Z [info     ] Starting the scheduler         [airflow.jobs.scheduler_job_runner.SchedulerJobRunner] loc=scheduler_job_runner.py:1525
+scheduler  | 2026-06-23T06:07:16.348340Z [info     ] Worker starting up pid=27      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.365453Z [info     ] Worker starting up pid=28      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.382725Z [info     ] Worker starting up pid=29      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+triggerer  | 2026-06-23T06:07:16.385727Z [info     ] Starting the triggerer         [airflow.jobs.triggerer_job_runner.TriggererJobRunner] loc=triggerer_job_runner.py:204
+scheduler  | 2026-06-23T06:07:16.395858Z [info     ] Worker starting up pid=30      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.436610Z [info     ] Worker starting up pid=31      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.445609Z [info     ] Worker starting up pid=33      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.479452Z [info     ] Worker starting up pid=34      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.477892Z [info     ] Worker starting up pid=35      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.498147Z [info     ] Worker starting up pid=36      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.521262Z [info     ] Worker starting up pid=37      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.561706Z [info     ] Worker starting up pid=38      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.584456Z [info     ] Worker starting up pid=39      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.604628Z [info     ] Worker starting up pid=40      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.629477Z [info     ] Worker starting up pid=41      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.645229Z [info     ] Worker starting up pid=42      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.665163Z [info     ] Worker starting up pid=43      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.684833Z [info     ] Worker starting up pid=44      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.703519Z [info     ] Worker starting up pid=45      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.715331Z [info     ] Worker starting up pid=46      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.736006Z [info     ] Worker starting up pid=47      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+scheduler  | 2026-06-23T06:07:16.759096Z [info     ] Worker starting up pid=48      [airflow.executors.local_executor.LocalExecutor] loc=local_executor.py:80
+root@ubuntu:~$ ^C
+root@ubuntu:~$ docker exec -it airflow bash
+airflow@c6e71dfeaddb:/opt/airflow$ cd /opt/airflow/dags
+airflow@c6e71dfeaddb:/opt/airflow/dags$ cat > first_dag.py
+from airflow.sdk import DAG
+from airflow.providers.standard.operators.python import PythonOperator
+from datetime import datetime
+
+
+def task1_function():
+    print("Task 1 Started")
+
+
+def task2_function():
+    print("Task 2 Running")
+
+
+def task3_function():
+    print("Task 3 Completed")
+
+
+with DAG(
+    dag_id="first_training_dag",
+    start_date=datetime(2025, 1, 1),
+    schedule="@daily",
+    catchup=False,
+    tags=["training"]
+) as dag:
+
+    task1 = PythonOperator(
+        task_id="task1",
+        python_callable=task1_function
+    )
+
+    task2 = PythonOperator(
+        task_id="task2",
+        python_callable=task2_function
+    )
+
+    task3 = PythonOperator(
+        task_id="task3",
+        python_callable=task3_function
+    )
+
+    task1 >> task2 >> task3
+airflow@c6e71dfeaddb:/opt/airflow/dags$ 
+exit
+root@ubuntu:~$ ls
+filesystem
+root@ubuntu:~$ ^[[200~docker exec -it airflow bash~
+docker: command not found
+root@ubuntu:~$ docker exec -it airflow bash
+airflow@c6e71dfeaddb:/opt/airflow$ cd /opt/airflow/dags
+airflow@c6e71dfeaddb:/opt/airflow/dags$ ls
+first_dag.py
+airflow@c6e71dfeaddb:/opt/airflow/dags$ airflow config get-value core dags_folder
+/opt/airflow/dags
+airflow@c6e71dfeaddb:/opt/airflow/dags$ airflow dags list-import-errors
+2026-06-23T06:12:06.598332Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:06.599116Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:06.600733Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:06.601243Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:06.601993Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:06.602936Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+No data found
+airflow@c6e71dfeaddb:/opt/airflow/dags$ airflow dags reserialize
+2026-06-23T06:12:18.279237Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:18.279987Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:18.280448Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:18.281021Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:18.281613Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:18.282035Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:18.716956Z [info     ] DAG bundles loaded: dags-folder [airflow.dag_processing.bundles.manager.DagBundlesManager] loc=manager.py:209
+2026-06-23T06:12:18.722659Z [info     ] Filling up the DagBag from /opt/airflow/dags [airflow.dag_processing.dagbag.BundleDagBag] loc=dagbag.py:469
+2026-06-23T06:12:18.884608Z [info     ] Bulk-writing dags to db        [airflow.serialization.definitions.dag] count=1 loc=dag.py:197
+2026-06-23T06:12:18.897279Z [info     ] Creating ORM DAG for first_training_dag [airflow.dag_processing.collection] loc=collection.py:102
+2026-06-23T06:12:18.901421Z [info     ] Getting latest run for non-partitioned Dag [airflow.dag_processing.collection] dag_id=first_training_dag loc=collection.py:194
+2026-06-23T06:12:18.907748Z [info     ] no latest run found            [airflow.dag_processing.collection] dag_id=first_training_dag loc=collection.py:204
+2026-06-23T06:12:18.917248Z [info     ] get next_dagrun_info_v2        [airflow.serialization.definitions.dag] last_automated_run_info=None loc=dag.py:420 next_info=DagRunInfo(run_after=DateTime(2026, 6, 23, 0, 0, 0, tzinfo=Timezone('UTC')), data_interval=DataInterval(start=DateTime(2026, 6, 23, 0, 0, 0, tzinfo=Timezone('UTC')), end=DateTime(2026, 6, 23, 0, 0, 0, tzinfo=Timezone('UTC'))), partition_date=None, partition_key=None)
+2026-06-23T06:12:18.917720Z [info     ] setting next dagrun info       [airflow.models.dag] loc=dag.py:792 next_dagrun='2026-06-23 00:00:00+00:00' next_dagrun_create_after='2026-06-23 00:00:00+00:00' next_dagrun_data_interval_end='2026-06-23 00:00:00+00:00' next_dagrun_data_interval_start='2026-06-23 00:00:00+00:00' next_dagrun_partition_date=None next_dagrun_partition_key=None
+airflow@c6e71dfeaddb:/opt/airflow/dags$  airflow dags list
+2026-06-23T06:12:29.027982Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:29.028750Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:29.029188Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:29.029626Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:29.029951Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-23T06:12:29.030306Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+dag_id             | fileloc                        | owners  | is_paused | bundle_name | bundle_version
+===================+================================+=========+===========+=============+===============
+first_training_dag | /opt/airflow/dags/first_dag.py | airflow | True      | dags-folder | None          
+                                                                                                        
+airflow@c6e71dfeaddb:/opt/airflow/dags$ 
