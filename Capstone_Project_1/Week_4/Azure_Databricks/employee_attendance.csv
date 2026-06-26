@@ -1,0 +1,13 @@
+employee_id,employee_name,department,date,status
+E101,Rahul,IT,2026-06-01,Present
+E102,Priya,HR,2026-06-01,Present
+E103,Amit,Finance,2026-06-01,Absent
+E104,Sneha,IT,2026-06-01,Present
+E105,Kiran,HR,2026-06-01,Absent
+E106,Megha,Finance,2026-06-01,Present
+E107,Arjun,IT,2026-06-01,Present
+E108,Neha,HR,2026-06-01,Present
+E109,Ravi,Finance,2026-06-01,Present
+E110,Anjali,IT,2026-06-01,Absent
+E111,Vikram,HR,2026-06-01,Present
+E112,Pooja,Finance,2026-06-01,Present
