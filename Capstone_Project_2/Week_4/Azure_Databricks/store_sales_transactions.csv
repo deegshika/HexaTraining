@@ -1,0 +1,13 @@
+sale_id,product_id,store,quantity
+S001,P101,Chennai,2
+S002,P102,Chennai,8
+S003,P103,Bangalore,5
+S004,P104,Hyderabad,1
+S005,P105,Chennai,3
+S006,P106,Bangalore,2
+S007,P107,Hyderabad,40
+S008,P108,Chennai,100
+S009,P101,Bangalore,1
+S010,P104,Hyderabad,2
+S011,P102,Bangalore,5
+S012,P105,Hyderabad,1
